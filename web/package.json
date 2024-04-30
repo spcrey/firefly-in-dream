@@ -10,8 +10,10 @@
   "dependencies": {
     "axios": "^1.6.8",
     "core-js": "^3.8.3",
+    "element-plus": "^2.7.0",
     "http-server": "^14.1.1",
-    "vue": "^3.2.13"
+    "vue": "^3.2.13",
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -37,7 +39,8 @@
     },
     "rules": {
       "vue/no-unused-components": "off",
-      "no-unused-vars": "off"
+      "no-unused-vars": "off",
+      "vue/multi-word-component-names": "off"
     }
   },
   "browserslist": [

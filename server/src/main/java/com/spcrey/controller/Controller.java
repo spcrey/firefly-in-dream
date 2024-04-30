@@ -11,7 +11,7 @@ import com.spcrey.service.UserService;
 
 @RestController
 @RequestMapping
-@CrossOrigin(origins = "http://localhost:8081/")
+@CrossOrigin(origins = "http://localhost:9100/")
 public class Controller {
 
     @Autowired

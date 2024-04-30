@@ -1,18 +1,11 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App"/>   -->
-  <FirstPage/>  
+  <router-view></router-view>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import FirstPage from './components/FirstPage.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld, FirstPage,
-  }
+  components: {}
 }
 </script>
 
