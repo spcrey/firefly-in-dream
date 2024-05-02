@@ -6,7 +6,7 @@ import argparse
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--fun", type=str)
+    parser.add_argument("--action", type=str)
     args = parser.parse_args()
     return args
 
@@ -36,7 +36,7 @@ def login():
         "username": username,
         "password": password,
     }
-    response = requests.post(url, json=data, )
+    response = requests.post(url, json=data)
     Authorization = response.json()["data"]
     if Authorization:
         with open("Authorization.cookie", "w") as file:
@@ -51,14 +51,31 @@ def info():
     response = requests.get(url, headers=headers)
     return response
 
+def update():
+    url = BASE_URL + "/user/update"
+    nickname = input("nickname: ")
+    email = input("email: ")
+    data = {}
+    if not nickname == "":
+        data["nickname"] = nickname
+    if not email == "":
+        data["email"] = email
+    response = requests.post(url, json=data)
+    Authorization = response.json()["data"]
+    if Authorization:
+        with open("Authorization.cookie", "w") as file:
+            file.write(Authorization)
+    return response
+
 def main():
     args = get_args()
-    fun_dict = {
+    action_dict = {
         "register": register,
         "login": login,
         "info": info,
+        "update": update,
     }
-    response = fun_dict[args.fun]
+    response = action_dict[args.action]
     result = response()
     if not result == None:
         print(f"status: {result.status_code}")
