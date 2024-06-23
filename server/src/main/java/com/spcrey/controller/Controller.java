@@ -11,14 +11,14 @@ import com.spcrey.service.UserService;
 
 @RestController
 @RequestMapping
-@CrossOrigin(origins = "http://localhost:9100/")
+@CrossOrigin(origins = "http://localhost:9000/")
 public class Controller {
 
     @Autowired
     UserService userService;
 
     @GetMapping
-    public Result<String> ffid() {
-        return Result.success("Hello World, FFID!");
+    public Result<String> firefly() {
+        return Result.success("Hello World, Firefly!");
     }
 }

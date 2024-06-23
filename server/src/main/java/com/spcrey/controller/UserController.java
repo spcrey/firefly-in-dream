@@ -78,4 +78,10 @@ public class UserController {
         User user = userService.findByUsername(username);
         return Result.success(user);
     }
+
+    @PostMapping("/update")
+    public Result<User> update(@RequestBody @Validated(User.Update.class) User user) {
+        userService.update(user);
+        return Result.success();
+    }
 }

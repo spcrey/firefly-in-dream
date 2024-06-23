@@ -1,13 +1,15 @@
 package com.spcrey.pojo;
 
 import java.time.LocalDateTime;
+
+import org.hibernate.validator.constraints.URL;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.groups.Default;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -15,22 +17,18 @@ public class User {
 
     private Integer id;
 
-    @NotNull
-    @Pattern(regexp = "^\\S{5,16}$")
     private String username;
 
-    @Pattern(regexp = "^\\S{5,16}$")
     @JsonIgnore
     private String password;
 
-    @NotNull(groups = Update.class)
-    @Pattern(regexp = "^\\S{5,16}$")
+    @Pattern(groups = Update.class, regexp = "^\\S{5,16}$")
     private String nickname;
 
-    @NotNull(groups = Update.class)
-    @Email
+    @Email(groups = Update.class)
     private String email;
 
+    @URL
     private String userPic;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")

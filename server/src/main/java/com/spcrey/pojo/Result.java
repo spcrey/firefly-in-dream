@@ -12,12 +12,12 @@ public class Result<T> {
     private String message;
     private T data;
     public static <E> Result<E> success(E data) {
-        return new Result<>(0, "operation successful", data);
+        return new Result<>(1, "operation successful", data);
     }
     public static<E> Result<E> success() {
-        return new Result<>(0, "operation successful", null);
+        return new Result<>(1, "operation successful", null);
     }
     public static<E> Result<E> error(String message) {
-        return new Result<>(1, message, null);
+        return new Result<>(0, message, null);
     }
 }

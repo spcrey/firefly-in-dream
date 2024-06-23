@@ -60,11 +60,10 @@ def update():
         data["nickname"] = nickname
     if not email == "":
         data["email"] = email
-    response = requests.post(url, json=data)
-    Authorization = response.json()["data"]
-    if Authorization:
-        with open("Authorization.cookie", "w") as file:
-            file.write(Authorization)
+    with open("Authorization.cookie", "r") as file:
+        Authorization = file.read()
+    headers = {"Authorization": Authorization}
+    response = requests.post(url, json=data, headers=headers)
     return response
 
 def main():
